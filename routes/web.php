@@ -56,3 +56,49 @@ Route::resource('Products', ProductController::class);
   - conn_controller_method：ProductController@destroy
 
  */
+
+/*
+Blog lara_0901 eshop 路由比較
+Blog admin開頭route URL
+  Route::prefix('admin')->name('admin.')->group(function () {
+      Route::get('/', [AdminHomeController::class, 'index'])->name("home.index");
+      Route::get('posts', [AdminPostsController::class, 'index'])->name("posts.index");
+      Route::get('posts/create', [AdminPostsController::class, 'create'])->name("posts.create");
+      Route::post('posts', [AdminPostsController::class, 'store'])->name("posts.store");
+      Route::get('posts/{post}/edit', [AdminPostsController::class, 'edit'])->name("posts.edit");
+      Route::patch('posts/{post}', [AdminPostsController::class, 'update'])->name("posts.update");
+      Route::delete('posts/{post}', [AdminPostsController::class, 'destroy'])->name("posts.destroy");
+  });
+    eshop route
+     Route::resource('Products', ProductController::class);
+
+  eshop products route
+  Route::resource('Products',ProductController::class);
+
+  Blog與lara_0901 專案兩者的區別：
+  使用 prefix 方法可以给组中的每个路由添加指定的 URI 前缀，常見用途是做權限管理
+  eshop專案 則可直接透過指定url進入
+
+
+  列出7個Products路由應該有的作用：
+  products.index
+  顯示目前有的產品資料
+
+  products.show
+  顯示指定的產品資料
+
+  products.create
+  顯示創建產品資料的資料表
+   products.store
+  將create的表單產品資料新增至資料庫中
+
+  products.edit
+  用於顯示用於編輯指定產品資料的表單
+
+  products.update
+  用於更新資料庫的指定產品資料
+
+  products.destroy
+  用於刪除指定的現有產品資料
+
+ */
