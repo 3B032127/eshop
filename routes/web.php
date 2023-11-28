@@ -19,9 +19,20 @@ Route::get('/', function () {
 });
 
 //Route::resource('Products', ProductController::class);
+/*
 Route::resource('Products',ProductController::class)->only([
     'index','show','store','update','destroy'
 ]);
+*/
+
+Route::get('/', [ProductController::class, 'index'])->name("product.index");
+Route::get('Products', [ProductController::class, 'index'])->name("products.index");
+Route::get('Products/create', [ProductController::class, 'create'])->name("products.create");
+Route::post('Products', [ProductController::class, 'store'])->name("products.store");
+Route::get('Products/{product}/edit', [ProductController::class, 'edit'])->name("products.edit");
+Route::patch('Products/{product}', [ProductController::class, 'update'])->name("products.update");
+Route::delete('Products/{product}', [ProductController::class, 'destroy'])->name("products.destroy");
+
 
 /*
   products.index
