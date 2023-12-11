@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CartItem;
 use App\Http\Requests\StoreCartItemRequest;
 use App\Http\Requests\UpdateCartItemRequest;
+use http\Client\Curl\User;
 
 class CartItemController extends Controller
 {
@@ -13,7 +14,9 @@ class CartItemController extends Controller
      */
     public function index()
     {
-        //
+        return view('cartItem.index',[
+           'cartItems' => CartItem::where('user_id', auth()->user()->id) -> get()
+        ]);
     }
 
     /**
