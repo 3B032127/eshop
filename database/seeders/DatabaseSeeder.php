@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\OrderItem;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -20,15 +19,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this -> call (
-          [
-              UserSeeder::class,
-              CategorySeeder::class,
-              ProductSeeder::class,
-              OrderSeeder::class,
-              OrderItemSeeder::class,
-              CartItemSeeder::class,
-          ]
+        $this -> call(
+            [
+                UserSeeder::class,
+                CategorySeeder::class,
+                ProductSeeder::class,
+                OrderSeeder::class,
+                OrderItemSeeder::class,
+                CartItemSeeder::class,
+            ]
         );
     }
 }

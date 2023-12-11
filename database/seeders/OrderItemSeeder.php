@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderItem;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class OrderItemSeeder extends Seeder
@@ -19,7 +18,7 @@ class OrderItemSeeder extends Seeder
         $products = Product::all();
 
         foreach ($orders as $order) {
-            for ($i = 0; $i < 3; $i++){
+            for ($i = 0; $i < 3; $i++) {
                 $product = $products->random();
 
                 OrderItem::create([

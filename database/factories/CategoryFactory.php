@@ -16,8 +16,9 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
+        $categories = ['電子產品','居家用品', '服飾配件', '嬰兒用品', '運動器材'];
         return [
-            //
+            'name' => $this -> faker -> unique() -> randomElement($categories),
         ];
     }
 }
